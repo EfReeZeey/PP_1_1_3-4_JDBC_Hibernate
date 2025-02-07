@@ -15,7 +15,8 @@ public class Util {
             return conn;
         } catch (SQLException e) {
             System.out.println("Не удалось установить соединение!");
-            throw new RuntimeException();
+            e.printStackTrace();
+            return null;
         }
     }
 }
