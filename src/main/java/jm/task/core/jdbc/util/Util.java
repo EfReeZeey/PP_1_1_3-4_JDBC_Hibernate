@@ -10,9 +10,9 @@ public class Util {
     private static final String PASSWORD = "Qw123456";
 
     public static Connection getConnection() {
-        try {
+        try (Connection conn = DriverManager.getConnection(DB, USER, PASSWORD)) {
             System.out.println("Соединение установлено!");
-            return DriverManager.getConnection(DB, USER, PASSWORD);
+            return conn;
         } catch (SQLException e) {
             System.out.println("Не удалось установить соединение!");
             throw new RuntimeException();
